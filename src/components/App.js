@@ -8,7 +8,6 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   render() {
-    console.log("PROPS APP:", this.props)
     return (
       <div>
          {this.props.loading === true
