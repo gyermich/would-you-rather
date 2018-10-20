@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Grid, Row, Col, Image, Radio, FormGroup, Button, Media } from 'react-bootstrap'
 
 class Question extends Component {
   render() {
@@ -11,14 +12,28 @@ class Question extends Component {
     } = question
     return (
       <div className='question'>
-        <img
-            src={author.avatarURL}
-            alt={`Avatar of ${author.name}`}
-            className='avatar'
-        />
-        <p>{question.optionOne.text}</p>
-        OR
-        <p>{question.optionTwo.text}</p>
+      <Media>
+          <Media.Left>
+            <img
+                width={100}
+                height={100}
+                src={author.avatarURL}
+                alt={`Avatar of ${author.name}`}
+            />
+          </Media.Left>
+          <Media.Body>
+            <Media.Heading>{author.name} asks:</Media.Heading>
+                <FormGroup>
+                  <Radio name="radioGroup">
+                    {question.optionOne.text}
+                  </Radio>{' '}
+                  <Radio name="radioGroup">
+                    {question.optionTwo.text}
+                  </Radio>{' '}
+                </FormGroup>
+                <Button type="submit">Select</Button>
+          </Media.Body>
+        </Media>
 
       </div>
     )

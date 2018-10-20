@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
+import { ListGroupItem, ListGroup } from 'react-bootstrap'
+
 
  class Dashboard extends Component {
   render() {
     return (
-      <div>
-        <h3 className='center'>Would you rather ..?</h3>
-        <ul className='dashboard-list'>
+      <div class="">
+        <h3 className='text-center'>Would you rather ..?</h3>
+        <ListGroup>
           {this.props.questionIds.map((id) => (
-            <li key={id}>
+            <ListGroupItem key={id}>
               <Question id={id}/>
-            </li>
+            </ListGroupItem>
           ))}
-        </ul>
+        </ListGroup>
       </div>
     )
   }
