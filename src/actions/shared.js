@@ -7,9 +7,9 @@ const AUTHED_ID = 'sarahedo'
 
 export function handleInitialData() {
     return (dispatch) => {
-        console.log('INITIAL DATA', getInitialData())
         return getInitialData()
         .then(({ users, questions }) => {
+            console.log('INITIAL DATA', users, questions)
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
             dispatch(setAuthedUser(AUTHED_ID))
