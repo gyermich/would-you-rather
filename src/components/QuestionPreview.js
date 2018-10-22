@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Grid, Row, Col, Image, Radio, FormGroup, Button, Media } from 'react-bootstrap'
 import { handleAnswerQuestion } from '../actions/questions'
+import { Link } from 'react-router-dom'
 
 class QuestionPreview extends Component {
   handleAnswer = (e, answer) => {
@@ -36,10 +37,10 @@ class QuestionPreview extends Component {
             <Media.Heading>{author.name} asks:</Media.Heading>
             <Row>
               <p> ...{question.optionOne.text}...</p>
-                <Button
+                <Link to={`/question/${question.id}`}
                   questionId={question.id}>
                   See more
-                </Button>
+                </Link>
               </Row>
           </Media.Body>
         </Media>
