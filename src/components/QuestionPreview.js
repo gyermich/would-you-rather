@@ -5,22 +5,8 @@ import { handleAnswerQuestion } from '../actions/questions'
 import { Link } from 'react-router-dom'
 
 class QuestionPreview extends Component {
-  handleAnswer = (e, answer) => {
-    e.preventDefault()
-
-    const { dispatch, question, authedUser } =  this.props
-
-    dispatch(handleAnswerQuestion({
-      id: question.id,
-      answer,
-      authedUser
-    }))
-  }
   render() {
     const { question, author } = this.props
-    const {
-        id, timestamp, optionOne, optionTwo
-    } = question
 
     return (
       <div className='question'>
@@ -49,6 +35,7 @@ class QuestionPreview extends Component {
     )
   }
 }
+
  function mapStateToProps ({ authedUser, users, questions }, { id }) {
     const question = questions[id]
     const author = users[question.author]
@@ -58,4 +45,5 @@ class QuestionPreview extends Component {
     author,
   }
 }
+
  export default connect(mapStateToProps)(QuestionPreview)

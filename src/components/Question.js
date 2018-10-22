@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col, Image, Radio, FormGroup, Button, Media } from 'react-bootstrap'
 import { handleAnswerQuestion } from '../actions/questions'
 import QuestionNotFound from './QuestionNotFound'
+import QuestionResults from './QuestionResults'
+import { Redirect } from 'react-router-dom'
 
 class Question extends Component {
   handleAnswer = (e, answer) => {
@@ -16,8 +18,9 @@ class Question extends Component {
       authedUser
     }))
   }
+
   render() {
-    const { question, author } = this.props
+    const { question, author, showResults } = this.props
 
     return (
       <Fragment>
@@ -43,23 +46,29 @@ class Question extends Component {
 
                     <Row><h5>Would you rather...?</h5></Row>
 
-                    <Row>
-                        <Button
-                          questionId={question.id}
-                          optionName="optionOne"
-                          onClick={(e) => this.handleAnswer(e, 'optionOne')}>
-                          {question.optionOne.text}
-                        </Button>
+                    {
+                      showResults
+                      ?
+                        <QuestionResults id={ question.id }/>
+                      :
+                        <Row>
+                            <Button
+                              questionId={question.id}
+                              optionName="optionOne"
+                              onClick={(e) => this.handleAnswer(e, 'optionOne')}>
+                              {question.optionOne.text}
+                            </Button>
 
-                        <span className='option-divider'>OR</span>
+                            <span className='option-divider'>OR</span>
 
-                        <Button
-                          questionId={question.id}
-                          optionName="optionTwo"
-                          onClick={(e) => this.handleAnswer(e, 'optionTwo')}>
-                          {question.optionTwo.text}
-                        </Button>
-                      </Row>
+                            <Button
+                              questionId={question.id}
+                              optionName="optionTwo"
+                              onClick={(e) => this.handleAnswer(e, 'optionTwo')}>
+                              {question.optionTwo.text}
+                            </Button>
+                          </Row>
+                    }
 
                   </Media.Body>
 
@@ -73,16 +82,19 @@ class Question extends Component {
   }
 }
 
- function mapStateToProps ({ authedUser, users, questions }, props) {
+function mapStateToProps ({ authedUser, users, questions }, props) {
     const { id } = props.match.params
     const question = questions[id]
     const author = question ? users[question.author] : ''
+    const currentUser = users[authedUser]
+    const showResults = question ? Object.keys(currentUser.answers).includes(question.id) : false
 
   return {
     authedUser,
     question,
     author,
+    showResults
   }
 }
 
- export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps)(Question)

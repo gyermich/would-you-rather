@@ -1,5 +1,6 @@
 import { saveQuestionAnswer, saveQuestion } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { handleInitialData } from './shared'
 
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -44,12 +45,16 @@ export function answerQuestion ({ authedUser, id, answer }) {
     }
 }
 
-
 export function handleAnswerQuestion (info) {
     return (dispatch) => {
+        dispatch(showLoading())
         dispatch(answerQuestion(info))
 
         return saveQuestionAnswer(info)
+        .then(() => {
+            dispatch(handleInitialData())
+            dispatch(hideLoading())
+        })
         .catch((e) => {
             console.warn('Error in handleAnswerQuestion: ', e)
             dispatch(answerQuestion(info))

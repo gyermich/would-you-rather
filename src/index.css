@@ -24,3 +24,7 @@ body {
 .media-body {
     padding-left: 15px;
 }
+
+.voted-option {
+    font-weight: bold;
+}
