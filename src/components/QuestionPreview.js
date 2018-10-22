@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col, Image, Radio, FormGroup, Button, Media } from 'react-bootstrap'
 import { handleAnswerQuestion } from '../actions/questions'
 
-class Question extends Component {
+class QuestionPreview extends Component {
   handleAnswer = (e, answer) => {
     e.preventDefault()
 
@@ -35,18 +35,10 @@ class Question extends Component {
           <Media.Body>
             <Media.Heading>{author.name} asks:</Media.Heading>
             <Row>
+              <p> ...{question.optionOne.text}...</p>
                 <Button
-                  questionId={question.id}
-                  optionName="optionOne"
-                  onClick={(e) => this.handleAnswer(e, 'optionOne')}>
-                  {question.optionOne.text}
-                </Button>
-                <p>OR</p>
-                <Button
-                  questionId={question.id}
-                  optionName="optionTwo"
-                  onClick={(e) => this.handleAnswer(e, 'optionTwo')}>
-                  {question.optionTwo.text}
+                  questionId={question.id}>
+                  See more
                 </Button>
               </Row>
           </Media.Body>
@@ -65,4 +57,4 @@ class Question extends Component {
     author,
   }
 }
- export default connect(mapStateToProps)(Question)
+ export default connect(mapStateToProps)(QuestionPreview)

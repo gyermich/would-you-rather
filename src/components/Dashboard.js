@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
+import QuestionPreview from './QuestionPreview'
 import { ListGroupItem, ListGroup } from 'react-bootstrap'
 
 
@@ -12,7 +13,7 @@ import { ListGroupItem, ListGroup } from 'react-bootstrap'
         <ListGroup>
           {this.props.questionIds.map((id) => (
             <ListGroupItem key={id}>
-              <Question id={id}/>
+              <QuestionPreview id={id}/>
             </ListGroupItem>
           ))}
         </ListGroup>
