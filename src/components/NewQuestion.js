@@ -13,7 +13,6 @@ class NewQuestion extends Component {
 
     handleChange = (e, option) => {
         const text = e.target.value
-        console.log(option, text, this.state)
 
         this.setState(() => ({
             [option]: text,

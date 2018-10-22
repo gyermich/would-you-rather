@@ -17,14 +17,16 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
+          <Nav />
           <div className='container'>
-            <Nav />
             {this.props.loading === true
               ? null
               : <div>
                   <Route path='/' exact component={Dashboard} />
                   <Route path='/question/:id' component={Question} />
                   <Route path='/new' component={NewQuestion} />
+                  {/* // <Route path="/login" component={Login}/>
+                  // <Route path="/leaderboard" component={LeaderBoard}/> */}
                 </div>}
           </div>
         </Fragment>

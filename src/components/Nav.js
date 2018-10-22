@@ -1,21 +1,27 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { Nav as NavBar, NavItem } from 'react-bootstrap'
 
  export default function Nav () {
   return (
-    <nav className='nav'>
-      <ul>
-        <li>
-          <NavLink to='/' exact activeClassName='active'>
+    <NavBar bsStyle="tabs">
+      <NavItem>
+          <NavLink to='/' exact>
             Home
           </NavLink>
-        </li>
-        <li>
-          <NavLink to='/new' activeClassName='active'>
+      </NavItem>
+
+      <NavItem>
+          <NavLink to='/' exact>
+            Leader Board
+          </NavLink>
+      </NavItem>
+
+        <NavItem>
+          <NavLink to='/new'>
             New Question
           </NavLink>
-        </li>
-      </ul>
-    </nav>
+        </NavItem>
+    </NavBar>
   )
 }

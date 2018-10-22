@@ -17,10 +17,10 @@ class Question extends Component {
   }
   render() {
     const { question, author } = this.props
-    console.log('?', question)
     const {
         id, timestamp, optionOne, optionTwo
     } = question
+
     return (
       <div className='question'>
       <Media>
