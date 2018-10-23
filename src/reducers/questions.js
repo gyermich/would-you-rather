@@ -1,7 +1,6 @@
 import { ANSWER_QUESTION, RECEIVE_QUESTIONS, NEW_QUESTION } from '../actions/questions'
 
 export default function questions (state = {}, action) {
-    console.log('STATE', state)
     switch(action.type) {
         case RECEIVE_QUESTIONS:
             return {
@@ -20,8 +19,6 @@ export default function questions (state = {}, action) {
                 }
             }
         case NEW_QUESTION:
-            const question = action
-
             return {
                 ...state,
                 [action.question.id]: action.question

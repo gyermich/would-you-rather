@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
 import QuestionPreview from './QuestionPreview'
 import { ListGroupItem, ListGroup } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
 import { Nav as NavBar, NavItem } from 'react-bootstrap'
 
 
@@ -16,7 +14,7 @@ import { Nav as NavBar, NavItem } from 'react-bootstrap'
     if (this.state.selectedTab !== selectedKey) {
         this.setState({
             selectedTab: selectedKey
-        });
+        })
     }
   }
 

@@ -28,3 +28,17 @@ body {
 .voted-option {
     font-weight: bold;
 }
+
+.nav span[role=button] {
+    padding: 15px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+li.navbar-right {
+    margin-right: 10px;
+}
+
+li.navbar-right img{
+    padding: 3px 5px;
+}

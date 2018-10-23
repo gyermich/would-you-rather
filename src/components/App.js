@@ -7,6 +7,7 @@ import LoadingBar from 'react-redux-loading'
 import NewQuestion from './NewQuestion'
 import Question from './Question'
 import Nav from './Nav'
+import Login from './Login'
 
 class App extends Component {
   componentDidMount() {
@@ -20,7 +21,7 @@ class App extends Component {
           <Nav />
           <div className='container'>
             {this.props.loading === true
-              ? null
+              ? <Route component={Login} />
               : <div>
                   <Route path='/' exact component={Dashboard} />
                   <Route path='/question/:id' component={Question} />

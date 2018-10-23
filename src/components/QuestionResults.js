@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Grid, Row, Col, Image, Radio, FormGroup, Button, Media } from 'react-bootstrap'
-import { handleAnswerQuestion } from '../actions/questions'
-import { Link } from 'react-router-dom'
+import { Row } from 'react-bootstrap'
 import Option from './Option'
 
 class QuestionResults extends Component {
@@ -13,12 +11,11 @@ class QuestionResults extends Component {
   }
 
   isVoted = (option, authedUser) => {
-    console.log("OPTION", option.votes, authedUser)
     return option.votes.includes(authedUser)
   }
 
   render() {
-    const { question, currentUser, authedUser } = this.props
+    const { question, authedUser } = this.props
     const { optionOne, optionTwo } = question
 
     return (
@@ -38,11 +35,9 @@ class QuestionResults extends Component {
 
 function mapStateToProps ({ authedUser, users, questions }, { id }) {
     const question = questions[id]
-    const currentUser = users[authedUser]
 
   return {
     question,
-    currentUser,
     authedUser
   }
 }

@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Grid, Row, Col, Image, Radio, FormGroup, Button, Media } from 'react-bootstrap'
+import { Row, Button, Media } from 'react-bootstrap'
 import { handleAnswerQuestion } from '../actions/questions'
 import QuestionNotFound from './QuestionNotFound'
 import QuestionResults from './QuestionResults'
-import { Redirect } from 'react-router-dom'
 
 class Question extends Component {
   handleAnswer = (e, answer) => {
@@ -53,8 +52,6 @@ class Question extends Component {
                       :
                         <Row>
                             <Button
-                              questionId={question.id}
-                              optionName="optionOne"
                               onClick={(e) => this.handleAnswer(e, 'optionOne')}>
                               {question.optionOne.text}
                             </Button>
@@ -62,8 +59,6 @@ class Question extends Component {
                             <span className='option-divider'>OR</span>
 
                             <Button
-                              questionId={question.id}
-                              optionName="optionTwo"
                               onClick={(e) => this.handleAnswer(e, 'optionTwo')}>
                               {question.optionTwo.text}
                             </Button>
