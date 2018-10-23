@@ -21,7 +21,6 @@ import { ListGroupItem, ListGroup } from 'react-bootstrap'
  }
 
  function mapStateToProps ({ users }) {
-    console.log("USERS, users")
     const sorted_users = Object.values(users)
        .sort((a, b) => (
             (Object.keys(b.answers).length + b.questions.length) -
