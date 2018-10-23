@@ -22,13 +22,13 @@ class Nav extends Component {
         </NavItem>
 
         <NavItem componentClass='span'>
-            <NavLink to='/' exact>
+            <NavLink to='/leaderboard' exact>
               Leader Board
             </NavLink>
         </NavItem>
 
           <NavItem componentClass='span'>
-            <NavLink to='/new'>
+            <NavLink to='/add'>
               New Question
             </NavLink>
           </NavItem>

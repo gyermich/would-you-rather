@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
 import { FormGroup, Button, FormControl, ControlLabel } from 'react-bootstrap'
-
 import { setAuthedUser, clearAuthedUser } from '../actions/authedUser';
 
 class Login extends Component {
