@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Row, Media } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 
 class User extends Component {
   render() {
